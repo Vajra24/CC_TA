@@ -1,15 +1,15 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Build') {
-            steps {
-                script {
-                    // Compile .cpp file
-                    sh 'g++ hello.cpp -o hello.out'
-                }
-            }
+  stage('Build') {
+    steps {
+        script {
+            // Intentional error: non-existent file
+            sh 'g++ non_existent_file.cpp -o hello.out'
         }
+    }
+}
+
         stage('Test') {
             steps {
                 script {
